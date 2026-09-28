@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroMotion from '../components/HeroMotion';
+import ProjectCard from '../components/ProjectCard';
+import MotionWrapper from '../components/MotionWrapper';
+import { projectsData } from '../data/projects';
+
+const featuredProjects = projectsData.filter((p) => p.featured);
+---
+
+<Layout title="Alfarizi | Fullstack Engineer & Creative Developer">
+  <!-- Hero Section with Framer Motion -->
+  <section class="py-12 sm:py-20 flex flex-col items-center justify-center">
+    <HeroMotion client:load />
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section class="mt-20">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-indigo-400 font-semibold mb-2">Portfolio</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">Featured Projects</h2>
+      </div>
+      <a
+        href="/projects"
+        class="text-sm font-medium text-gray-300 hover:text-indigo-400 transition-colors inline-flex items-center gap-1 group"
+      >
+        View all projects
+        <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {featuredProjects.map((project, index) => (
+        <ProjectCard client:visible project={project} index={index} />
+      ))}
+    </div>
+  </section>
+
+  <!-- About Teaser / Call to action with Framer Motion -->
+  <section class="mt-28">
+    <MotionWrapper client:visible delay={0.2} className="w-full">
+      <div class="glass rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-indigo-500/20 bg-gradient-to-r from-indigo-950/40 via-purple-950/20 to-slate-900/60">
+        <div class="max-w-2xl">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Let's collaborate on your next vision.
+          </h2>
+          <p class="text-gray-300 mb-8 leading-relaxed">
+            Whether you need modern frontend architecture, robust backend services, or intuitive design systems, feel free to reach out.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/contact"
+              class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium shadow-lg shadow-indigo-500/25 transition-colors"
+            >
+              Start a Conversation
+            </a>
+            <a
+              href="/about"
+              class="px-6 py-3 rounded-xl glass hover:bg-white/10 text-gray-200 font-medium transition-colors"
+            >
+              Learn More About Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </MotionWrapper>
+  </section>
+</Layout>

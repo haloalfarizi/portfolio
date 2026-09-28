@@ -1,0 +1,15 @@
+buatkan issue.md berisi planning untuk membuat ini: 
+
+Buat project baru di folder ini
+
+Menggunakan:
+- astro
+- tailwind css
+- framer motion
+- Plausible Analytics
+
+note: Jangan terlalu lowe level atau detailed
+
+Cukup instruksikan secara high level
+
+nanti dokumen planning ini akan digunakan oleh programmer atau model lain yang lebih murah untuk diimplementasikan

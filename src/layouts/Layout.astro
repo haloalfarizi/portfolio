@@ -1,0 +1,54 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Alfarizi | Software Engineer & Creative Developer",
+  description = "Personal portfolio showcasing modern web engineering projects, skills, and contact information."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Plausible Analytics (Privacy-friendly, no cookies) -->
+    <script defer data-domain="alfarizi.dev" src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-[#0b0f19] text-gray-100 selection:bg-indigo-500 selection:text-white antialiased">
+    <!-- Background glowing ambient lights -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-indigo-600/15 rounded-full blur-[120px]"></div>
+      <div class="absolute top-[40%] -left-40 w-[450px] h-[350px] bg-cyan-600/10 rounded-full blur-[130px]"></div>
+      <div class="absolute bottom-10 -right-40 w-[450px] h-[350px] bg-pink-600/10 rounded-full blur-[130px]"></div>
+    </div>
+
+    <Navbar />
+
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

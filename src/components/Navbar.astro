@@ -1,0 +1,92 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.replace(/\/$/, "");
+
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<header class="sticky top-0 z-50 w-full glass border-b border-white/5 transition-all">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 group">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center font-bold text-white shadow-md group-hover:shadow-indigo-500/50 transition-shadow">
+        A
+      </div>
+      <span class="font-bold text-lg text-white tracking-tight group-hover:text-indigo-400 transition-colors">
+        Alfarizi<span class="text-indigo-400">.dev</span>
+      </span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-1">
+      {navItems.map((item) => {
+        const isActive = (item.href === "/" && currentPath === "") || (item.href !== "/" && currentPath === item.href);
+        return (
+          <a
+            href={item.href}
+            class={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
+              isActive
+                ? "text-white bg-white/10 shadow-sm"
+                : "text-gray-400 hover:text-white hover:bg-white/5"
+            }`}
+          >
+            {item.name}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Right action button -->
+    <div class="hidden md:flex items-center gap-3">
+      <a
+        href="/contact"
+        class="text-xs px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium shadow-sm transition-colors"
+      >
+        Hire Me
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 focus:outline-none"
+      aria-label="Toggle Navigation"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-1 border-t border-white/5 bg-[#0b0f19]/95 backdrop-blur-lg">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5"
+      >
+        {item.name}
+      </a>
+    ))}
+    <a
+      href="/contact"
+      class="block mt-2 text-center px-3 py-2 rounded-md text-sm font-medium bg-indigo-600 text-white"
+    >
+      Hire Me
+    </a>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  }
+</script>
