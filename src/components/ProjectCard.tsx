@@ -22,15 +22,24 @@ export default function ProjectCard({ project, index = 0 }: Props) {
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
       whileHover={{ y: -6 }}
-      className="glass-card rounded-2xl p-6 flex flex-col justify-between h-full group relative overflow-hidden"
+      className="structure-card rounded-2xl p-6 flex flex-col justify-between h-full group relative overflow-hidden"
     >
-      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all duration-500 pointer-events-none" />
+      {/* Subtle ambient accent on hover */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-[#F9452D]/10 rounded-full blur-2xl group-hover:bg-[#F9452D]/20 transition-all duration-500 pointer-events-none" />
 
       <div>
         <div className="flex items-center justify-between mb-4">
-          <span className="text-xs font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">
-            {project.featured ? 'Featured Project' : 'Project'}
-          </span>
+          {project.featured ? (
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#7dd395] bg-[#255031]/40 px-2.5 py-1 rounded-full border border-[#255031]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#52b772]"></span>
+              Featured Project
+            </span>
+          ) : (
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 bg-white/5 px-2.5 py-1 rounded-full border border-white/10">
+              Project
+            </span>
+          )}
+
           <div className="flex items-center gap-2">
             {project.github && (
               <a
@@ -50,7 +59,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
                 href={project.link}
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-400 hover:text-indigo-400 transition-colors p-1"
+                className="text-gray-400 hover:text-[#F9452D] transition-colors p-1"
                 aria-label={`Live demo for ${project.title}`}
               >
                 <svg className="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
@@ -61,7 +70,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
           </div>
         </div>
 
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#F9452D] transition-colors">
           {project.title}
         </h3>
         <p className="text-gray-300 text-sm leading-relaxed mb-6">
@@ -70,11 +79,11 @@ export default function ProjectCard({ project, index = 0 }: Props) {
       </div>
 
       <div>
-        <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-800">
+        <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2.5 py-1 rounded-md bg-gray-800/80 text-gray-300 border border-gray-700/60 font-mono"
+              className="text-xs px-2.5 py-1 rounded-md bg-white/10 text-gray-200 border border-white/10 font-mono"
             >
               {tag}
             </span>

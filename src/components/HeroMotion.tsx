@@ -28,48 +28,68 @@ export default function HeroMotion() {
       animate="visible"
       className="max-w-3xl mx-auto text-center"
     >
-      <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-6">
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      {/* Availability Badge balanced with #255031 */}
+      <motion.div
+        variants={itemVariants}
+        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#255031]/25 bg-[#255031]/10 text-[#255031] text-xs font-semibold tracking-wide mb-6"
+      >
+        <span className="w-2 h-2 rounded-full bg-[#255031] animate-pulse"></span>
         Available for new projects & opportunities
       </motion.div>
 
-      <motion.h1 variants={itemVariants} className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
+      <motion.h1
+        variants={itemVariants}
+        className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#0C0C0C] mb-6 leading-tight"
+      >
         Hi, I'm{' '}
-        <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+        <span className="relative inline-block text-[#0C0C0C]">
           Alfarizi
+          <span className="inline-block text-[#F9452D]">.</span>
         </span>
       </motion.h1>
 
-      <motion.p variants={itemVariants} className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+      <motion.p
+        variants={itemVariants}
+        className="text-lg sm:text-xl text-[#0C0C0C]/75 leading-relaxed mb-8 max-w-2xl mx-auto"
+      >
         Fullstack Software Engineer & UI/UX enthusiast building sleek, accessible, and high-performance digital experiences.
       </motion.p>
 
+      {/* Action Buttons */}
       <motion.div variants={itemVariants} className="flex flex-wrap justify-center items-center gap-4">
+        {/* Primary CTA with #F9452D */}
         <motion.a
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.98 }}
           href="/projects"
-          className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium shadow-lg shadow-indigo-500/25 transition-colors"
+          className="px-6 py-3.5 rounded-xl bg-[#F9452D] hover:bg-[#E23821] text-white font-medium shadow-lg shadow-[#F9452D]/20 transition-all flex items-center gap-2 group"
         >
-          View Selected Projects
+          <span>View Selected Projects</span>
+          <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
         </motion.a>
+
+        {/* Structural secondary button with #0C0C0C */}
         <motion.a
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.98 }}
           href="/contact"
-          className="px-6 py-3 rounded-xl glass hover:bg-white/10 text-gray-200 font-medium transition-colors"
+          className="px-6 py-3.5 rounded-xl bg-[#0C0C0C] hover:bg-[#1F1F1F] text-[#F8F8FF] font-medium shadow-md transition-all flex items-center gap-2 group"
         >
-          Get in Touch &rarr;
+          <span>Get in Touch</span>
+          <span className="text-[#F9452D] transition-transform group-hover:translate-x-1">&rarr;</span>
         </motion.a>
       </motion.div>
 
       {/* Tech stack badges */}
-      <motion.div variants={itemVariants} className="mt-14 pt-8 border-t border-gray-800/80 flex flex-wrap justify-center items-center gap-6 text-xs text-gray-400">
-        <span className="text-gray-500 font-semibold uppercase tracking-wider">Core Tech:</span>
-        <span className="px-3 py-1 rounded-md bg-gray-800/60 border border-gray-700/50">TypeScript</span>
-        <span className="px-3 py-1 rounded-md bg-gray-800/60 border border-gray-700/50">React & Astro</span>
-        <span className="px-3 py-1 rounded-md bg-gray-800/60 border border-gray-700/50">Node.js</span>
-        <span className="px-3 py-1 rounded-md bg-gray-800/60 border border-gray-700/50">Tailwind CSS</span>
+      <motion.div
+        variants={itemVariants}
+        className="mt-14 pt-8 border-t border-[#0C0C0C]/10 flex flex-wrap justify-center items-center gap-3 text-xs text-[#0C0C0C]/70"
+      >
+        <span className="text-[#0C0C0C] font-bold uppercase tracking-wider text-[11px] mr-2">Core Tech:</span>
+        <span className="px-3 py-1.5 rounded-lg bg-white border border-[#0C0C0C]/10 font-mono shadow-xs text-[#0C0C0C]">TypeScript</span>
+        <span className="px-3 py-1.5 rounded-lg bg-white border border-[#0C0C0C]/10 font-mono shadow-xs text-[#0C0C0C]">React & Astro</span>
+        <span className="px-3 py-1.5 rounded-lg bg-white border border-[#0C0C0C]/10 font-mono shadow-xs text-[#0C0C0C]">Node.js</span>
+        <span className="px-3 py-1.5 rounded-lg bg-white border border-[#0C0C0C]/10 font-mono shadow-xs text-[#0C0C0C]">Tailwind CSS</span>
       </motion.div>
     </motion.div>
   );

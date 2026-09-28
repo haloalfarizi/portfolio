@@ -10,14 +10,14 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 w-full glass border-b border-white/5 transition-all">
+<header class="sticky top-0 z-50 w-full glass-nav transition-all">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2 group">
-      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center font-bold text-white shadow-md group-hover:shadow-indigo-500/50 transition-shadow">
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="w-8 h-8 rounded-lg bg-[#0C0C0C] flex items-center justify-center font-bold text-[#F8F8FF] text-sm shadow-sm group-hover:scale-105 transition-transform">
         A
       </div>
-      <span class="font-bold text-lg text-white tracking-tight group-hover:text-indigo-400 transition-colors">
-        Alfarizi<span class="text-indigo-400">.dev</span>
+      <span class="font-bold text-lg text-[#0C0C0C] tracking-tight">
+        Alfarizi<span class="text-[#F9452D]">.dev</span>
       </span>
     </a>
 
@@ -28,10 +28,10 @@ const navItems = [
         return (
           <a
             href={item.href}
-            class={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
+            class={`px-3.5 py-1.5 rounded-lg text-sm transition-all ${
               isActive
-                ? "text-white bg-white/10 shadow-sm"
-                : "text-gray-400 hover:text-white hover:bg-white/5"
+                ? "text-[#F8F8FF] bg-[#0C0C0C] font-medium shadow-sm"
+                : "text-[#0C0C0C]/70 hover:text-[#F9452D] hover:bg-[#0C0C0C]/5"
             }`}
           >
             {item.name}
@@ -40,11 +40,11 @@ const navItems = [
       })}
     </nav>
 
-    <!-- Right action button -->
+    <!-- Right action button (CTA) -->
     <div class="hidden md:flex items-center gap-3">
       <a
         href="/contact"
-        class="text-xs px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium shadow-sm transition-colors"
+        class="text-xs px-4 py-2 rounded-lg bg-[#F9452D] hover:bg-[#E23821] text-white font-medium shadow-sm shadow-[#F9452D]/20 transition-all hover:-translate-y-0.5"
       >
         Hire Me
       </a>
@@ -53,7 +53,7 @@ const navItems = [
     <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 focus:outline-none"
+      class="md:hidden p-2 rounded-lg text-[#0C0C0C] hover:bg-[#0C0C0C]/5 focus:outline-none"
       aria-label="Toggle Navigation"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,18 +63,18 @@ const navItems = [
   </div>
 
   <!-- Mobile Dropdown -->
-  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-1 border-t border-white/5 bg-[#0b0f19]/95 backdrop-blur-lg">
+  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-1 border-t border-[#0C0C0C]/10 bg-[#F8F8FF] shadow-lg">
     {navItems.map((item) => (
       <a
         href={item.href}
-        class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5"
+        class="block px-3 py-2 rounded-md text-base font-medium text-[#0C0C0C] hover:text-[#F9452D] hover:bg-[#0C0C0C]/5"
       >
         {item.name}
       </a>
     ))}
     <a
       href="/contact"
-      class="block mt-2 text-center px-3 py-2 rounded-md text-sm font-medium bg-indigo-600 text-white"
+      class="block mt-2 text-center px-3 py-2.5 rounded-md text-sm font-medium bg-[#F9452D] text-white shadow-sm"
     >
       Hire Me
     </a>
