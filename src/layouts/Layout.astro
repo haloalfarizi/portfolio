@@ -6,11 +6,13 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  fullWidth?: boolean;
 }
 
 const {
   title = "Alfarizi | Software Engineer & Creative Developer",
-  description = "Personal portfolio showcasing modern web engineering projects, skills, and contact information."
+  description = "Personal portfolio showcasing modern web engineering projects, skills, and contact information.",
+  fullWidth = false,
 } = Astro.props;
 ---
 
@@ -30,13 +32,13 @@ const {
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Plausible Analytics -->
     <script defer data-domain="alfarizi.dev" src="https://plausible.io/js/script.js"></script>
   </head>
   <body class="min-h-screen flex flex-col bg-[#F8F8FF] text-[#0C0C0C] selection:bg-[#F9452D] selection:text-white antialiased">
-    <!-- Ambient subtle background glow -->
+    <!-- Ambient subtle background glow (only on light canvas areas) -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
       <div class="absolute -top-36 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#F9452D]/4 rounded-full blur-[140px]"></div>
       <div class="absolute top-[35%] -left-40 w-[500px] h-[400px] bg-[#255031]/4 rounded-full blur-[150px]"></div>
@@ -45,9 +47,15 @@ const {
 
     <Navbar />
 
-    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
-      <slot />
-    </main>
+    {fullWidth ? (
+      <main class="flex-grow w-full">
+        <slot />
+      </main>
+    ) : (
+      <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <slot />
+      </main>
+    )}
 
     <Footer />
   </body>
