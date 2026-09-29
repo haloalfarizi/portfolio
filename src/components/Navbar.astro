@@ -3,35 +3,32 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.replace(/\/$/, "");
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
+  { name: "HOME", href: "/" },
+  { name: "WORK ⁴", href: "/projects" },
+  { name: "ABOUT", href: "/about" },
+  { name: "CONTACT", href: "/contact" },
 ];
 ---
 
 <header class="sticky top-0 z-50 w-full glass-nav transition-all">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2.5 group">
-      <div class="w-8 h-8 rounded-lg bg-[#0C0C0C] flex items-center justify-center font-bold text-[#F8F8FF] text-sm shadow-sm group-hover:scale-105 transition-transform">
-        A
-      </div>
-      <span class="font-bold text-lg text-[#0C0C0C] tracking-tight">
-        Alfarizi<span class="text-[#F9452D]">.dev</span>
+    <a href="/" class="flex items-center gap-2 group">
+      <span class="font-extrabold text-lg sm:text-xl text-[#0C0C0C] tracking-tight flex items-baseline">
+        AL-FARIZI<span class="text-xs font-semibold ml-0.5 text-[#F9452D]">®</span>
       </span>
     </a>
 
     <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center gap-1">
+    <nav class="hidden md:flex items-center gap-6">
       {navItems.map((item) => {
         const isActive = (item.href === "/" && currentPath === "") || (item.href !== "/" && currentPath === item.href);
         return (
           <a
             href={item.href}
-            class={`px-3.5 py-1.5 rounded-lg text-sm transition-all ${
+            class={`text-xs font-semibold tracking-wider transition-colors ${
               isActive
-                ? "text-[#F8F8FF] bg-[#0C0C0C] font-medium shadow-sm"
-                : "text-[#0C0C0C]/70 hover:text-[#F9452D] hover:bg-[#0C0C0C]/5"
+                ? "text-[#0C0C0C] font-bold border-b-2 border-[#0C0C0C] pb-0.5"
+                : "text-[#0C0C0C]/70 hover:text-[#F9452D]"
             }`}
           >
             {item.name}
@@ -40,13 +37,16 @@ const navItems = [
       })}
     </nav>
 
-    <!-- Right action button (CTA) -->
-    <div class="hidden md:flex items-center gap-3">
+    <!-- Right Action Button: Capsule pill matching reference -->
+    <div class="hidden md:flex items-center">
       <a
         href="/contact"
-        class="text-xs px-4 py-2 rounded-lg bg-[#F9452D] hover:bg-[#E23821] text-white font-medium shadow-sm shadow-[#F9452D]/20 transition-all hover:-translate-y-0.5"
+        class="inline-flex items-center gap-2 pl-4 pr-1.5 py-1.5 rounded-full bg-white border border-[#0C0C0C]/15 text-[#0C0C0C] text-xs font-bold tracking-wide shadow-xs hover:border-[#0C0C0C] hover:shadow-md transition-all group"
       >
-        Hire Me
+        <span>Let's talk</span>
+        <span class="w-6 h-6 rounded-full bg-[#0C0C0C] text-white flex items-center justify-center text-xs group-hover:bg-[#F9452D] transition-colors">
+          &#8599;
+        </span>
       </a>
     </div>
 
@@ -63,20 +63,21 @@ const navItems = [
   </div>
 
   <!-- Mobile Dropdown -->
-  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-1 border-t border-[#0C0C0C]/10 bg-[#F8F8FF] shadow-lg">
+  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 border-t border-[#0C0C0C]/10 bg-[#F8F8FF] shadow-lg">
     {navItems.map((item) => (
       <a
         href={item.href}
-        class="block px-3 py-2 rounded-md text-base font-medium text-[#0C0C0C] hover:text-[#F9452D] hover:bg-[#0C0C0C]/5"
+        class="block px-3 py-2 rounded-md text-sm font-semibold tracking-wider text-[#0C0C0C] hover:text-[#F9452D]"
       >
         {item.name}
       </a>
     ))}
     <a
       href="/contact"
-      class="block mt-2 text-center px-3 py-2.5 rounded-md text-sm font-medium bg-[#F9452D] text-white shadow-sm"
+      class="inline-flex w-full items-center justify-between px-4 py-2.5 rounded-full bg-[#0C0C0C] text-white text-xs font-bold"
     >
-      Hire Me
+      <span>Let's talk</span>
+      <span class="text-[#F9452D] font-bold">&#8599;</span>
     </a>
   </div>
 </header>
