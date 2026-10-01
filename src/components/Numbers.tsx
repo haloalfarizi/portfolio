@@ -55,9 +55,9 @@ export default function Numbers() {
         className="w-full"
       >
         {/* Top Header Row */}
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-16 sm:mb-24">
+        <div className="flex flex-col md:flex-row md:items-start justify-start gap-12 sm:gap-16 lg:gap-24 mb-16 sm:mb-24">
           {/* Left: Let's talk link with #F9452D elbow arrow */}
-          <motion.div variants={itemVariants} className="shrink-0 pt-1">
+          <motion.div variants={itemVariants} className="w-full md:w-48 lg:w-56 shrink-0 pt-1">
             <a
               href="/contact"
               className="inline-flex items-center gap-2.5 text-sm sm:text-base font-bold text-[#0C0C0C] hover:text-[#F9452D] transition-colors group cursor-pointer"
