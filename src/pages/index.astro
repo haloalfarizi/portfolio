@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroMotion from '../components/HeroMotion';
+import Numbers from '../components/Numbers';
 import ProjectCard from '../components/ProjectCard';
 import MotionWrapper from '../components/MotionWrapper';
 import { projectsData } from '../data/projects';
@@ -15,9 +16,12 @@ const featuredProjects = projectsData.filter((p) => p.featured);
   </section>
 
   <!-- Contained Lower Sections -->
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Numbers Section (Directly Below Hero) -->
+    <Numbers client:visible />
+
     <!-- Featured Projects Section -->
-    <section>
+    <section class="py-16 sm:py-24">
       <div class="flex items-end justify-between mb-10">
         <div>
           <p class="text-xs uppercase tracking-widest text-[#F9452D] font-bold mb-2">Portfolio</p>
@@ -40,7 +44,7 @@ const featuredProjects = projectsData.filter((p) => p.featured);
     </section>
 
     <!-- About Teaser / Call to action in #0C0C0C Structure Section -->
-    <section class="mt-28">
+    <section class="pb-24 sm:pb-32">
       <MotionWrapper client:visible delay={0.2} className="w-full">
         <div class="rounded-3xl p-8 sm:p-12 relative overflow-hidden bg-[#0C0C0C] text-[#F8F8FF] border border-white/10 shadow-2xl">
           <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#F9452D]/10 rounded-full blur-3xl pointer-events-none"></div>
