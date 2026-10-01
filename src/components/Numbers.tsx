@@ -71,7 +71,7 @@ export default function Numbers() {
 
           {/* Right: Editorial Main Heading */}
           <motion.div variants={itemVariants} className="max-w-2xl lg:max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0C0C0C] tracking-tight leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#0C0C0C] tracking-tight leading-[1.15]">
               Our work speaks through numbers.
               <br />
               Here's what we've achieved so far.
@@ -87,7 +87,7 @@ export default function Numbers() {
               variants={itemVariants}
               className="flex flex-col justify-start"
             >
-              <span className="text-6xl sm:text-7xl lg:text-8xl font-black text-[#0C0C0C] tracking-tighter leading-none mb-4 font-sans select-none">
+              <span className="text-6xl sm:text-7xl lg:text-8xl font-semibold text-[#0C0C0C] tracking-tighter leading-none mb-4 font-sans select-none">
                 {stat.number}
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-[#0C0C0C] mb-2 tracking-tight">
