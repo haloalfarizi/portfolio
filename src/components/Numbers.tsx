@@ -70,11 +70,10 @@ export default function Numbers() {
           </motion.div>
 
           {/* Right: Editorial Main Heading */}
-          <motion.div variants={itemVariants} className="max-w-2xl lg:max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#0C0C0C] tracking-tight leading-[1.15]">
-              Our work speaks through numbers.
-              <br />
-              Here's what we've achieved so far.
+          <motion.div variants={itemVariants} className="max-w-4xl lg:max-w-5xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0C0C0C] tracking-tight leading-[1.2]">
+              <span className="block sm:whitespace-nowrap">Our work speaks through numbers.</span>
+              <span className="block sm:whitespace-nowrap">Here's what we've achieved so far.</span>
             </h2>
           </motion.div>
         </div>
