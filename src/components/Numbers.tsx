@@ -84,17 +84,19 @@ export default function Numbers() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="flex flex-col justify-start"
+              className="flex flex-col items-start md:items-center"
             >
-              <span className="text-6xl sm:text-7xl lg:text-8xl font-semibold text-[#0C0C0C] tracking-tighter leading-none mb-4 font-sans select-none">
-                {stat.number}
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#0C0C0C] mb-2 tracking-tight">
-                {stat.title}
-              </h3>
-              <p className="text-sm sm:text-base text-[#0C0C0C]/65 leading-relaxed max-w-xs">
-                {stat.description}
-              </p>
+              <div className="flex flex-col text-left max-w-xs w-full">
+                <span className="text-6xl sm:text-7xl lg:text-8xl font-semibold text-[#0C0C0C] tracking-tighter leading-none mb-4 font-sans select-none">
+                  {stat.number}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#0C0C0C] mb-2 tracking-tight">
+                  {stat.title}
+                </h3>
+                <p className="text-sm sm:text-base text-[#0C0C0C]/65 leading-relaxed">
+                  {stat.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
