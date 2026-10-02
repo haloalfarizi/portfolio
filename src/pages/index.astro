@@ -2,11 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import HeroMotion from "../components/HeroMotion";
 import Numbers from "../components/Numbers";
-import ProjectCard from "../components/ProjectCard";
+import FeaturedProjects from "../components/FeaturedProjects";
 import MotionWrapper from "../components/MotionWrapper";
-import { projectsData } from "../data/projects";
-
-const featuredProjects = projectsData.filter((p) => p.featured);
 ---
 
 <Layout
@@ -23,39 +20,8 @@ const featuredProjects = projectsData.filter((p) => p.featured);
     <!-- Numbers Section (Directly Below Hero) -->
     <Numbers client:visible />
 
-    <!-- Featured Projects Section -->
-    <section class="py-16 sm:py-24">
-      <div class="flex items-end justify-between mb-10">
-        <div>
-          <p
-            class="text-xs uppercase tracking-widest text-[#F9452D] font-bold mb-2"
-          >
-            Portfolio
-          </p>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0C0C0C]">
-            Featured Projects
-          </h2>
-        </div>
-        <a
-          href="/projects"
-          class="text-sm font-semibold text-[#0C0C0C] hover:text-[#F9452D] transition-colors inline-flex items-center gap-1.5 group"
-        >
-          <span>View all projects</span>
-          <span
-            class="text-[#F9452D] group-hover:translate-x-1 transition-transform"
-            >&rarr;</span
-          >
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          featuredProjects.map((project, index) => (
-            <ProjectCard client:visible project={project} index={index} />
-          ))
-        }
-      </div>
-    </section>
+    <!-- Dedicated Featured Projects Section -->
+    <FeaturedProjects client:visible />
 
     <!-- About Teaser / Call to action in #0C0C0C Structure Section -->
     <section class="pb-24 sm:pb-32">
